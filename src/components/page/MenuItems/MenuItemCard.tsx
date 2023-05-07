@@ -1,6 +1,7 @@
 import React from "react";
 import { menuItemModel } from "../../../interfaces";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetMenuItemByIdQuery } from "../../../apis/menuItemApi";
 
 interface Props {
   menuItem: menuItemModel;
