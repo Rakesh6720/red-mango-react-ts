@@ -1,10 +1,13 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetMenuItemByIdQuery } from "../apis/menuItemApi";
+import { useNavigate } from "react-router-dom";
 
 function MenuItemDetails() {
   const { menuItemId } = useParams();
   const { data, isLoading } = useGetMenuItemByIdQuery(menuItemId);
+  const navigate = useNavigate();
+
   return (
     <div className="container pt-4 pt-md-5">
       {!isLoading ? (
@@ -55,7 +58,10 @@ function MenuItemDetails() {
                 </div>
 
                 <div className="col-5 ">
-                  <button className="btn btn-secondary form-control">
+                  <button
+                    className="btn btn-secondary form-control"
+                    onClick={() => navigate(-1)}
+                  >
                     Back to Home
                   </button>
                 </div>
